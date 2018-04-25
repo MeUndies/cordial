@@ -1,3 +1,4 @@
+require "httparty"
 require "cordial/version"
 
 module Cordial
