@@ -3,7 +3,12 @@ require "bundler/setup"
 require "dotenv"
 Dotenv.load('.env.test')
 
+require "pry"
 require "cordial"
+
+Cordial.configure do |config|
+  config.api_key = ENV['API_KEY']
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
