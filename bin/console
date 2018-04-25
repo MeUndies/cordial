@@ -4,6 +4,9 @@ require "bundler/setup"
 require "dotenv/load"
 require "cordial"
 
+Cordial.configure do |config|
+  config.api_key = ENV['API_KEY']
+end
 
 require "pry"
 Pry.start
