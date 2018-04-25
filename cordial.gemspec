@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Andrew Hood"]
   spec.email         = ["andrewhood125@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Cordial API Client"
+  spec.description   = "Wraps the Cordial REST API for use inside Ruby applications."
+  spec.homepage      = "https://github.com/MeUndies/cordial"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
