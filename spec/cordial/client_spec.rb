@@ -12,8 +12,9 @@ RSpec.describe Cordial::Client do
   describe '#client' do
     subject { dummy_class.client }
 
-    it 'adds basic authentication headers' do
+    it 'sets up the client' do
       expect(subject.default_options).to eq(
+        base_uri: 'https://api.cordial.io/v1',
         basic_auth: {
           username: 'cordial-api-key',
           password: ''
