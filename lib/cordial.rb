@@ -2,5 +2,16 @@ require "httparty"
 require "cordial/version"
 
 module Cordial
-  # Your code goes here...
+  class << self
+    attr_accessor :config
+  end
+
+  def self.configure
+    self.config ||= Configuration.new
+    yield(config)
+  end
+
+  class Configuration
+    attr_accessor :api_key, :api_url
+  end
 end
