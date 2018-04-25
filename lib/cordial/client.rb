@@ -4,6 +4,7 @@ module Cordial
   # available until runtime, not load time.
   module Client
     def client
+      base_uri 'https://api.cordial.io/v1'
       basic_auth(Cordial.config.api_key, '')
       self
     end

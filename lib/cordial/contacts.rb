@@ -4,10 +4,8 @@ module Cordial
     include ::HTTParty
     extend Client
 
-    base_uri 'https://api.cordial.io/v1/contacts'
-
     def self.find(email:)
-      client.get("/#{email}")
+      client.get("/contacts/#{email}")
     end
   end
 end
