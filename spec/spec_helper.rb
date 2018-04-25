@@ -1,4 +1,8 @@
 require "bundler/setup"
+
+require "dotenv"
+Dotenv.load('.env.test')
+
 require "cordial"
 
 RSpec.configure do |config|
