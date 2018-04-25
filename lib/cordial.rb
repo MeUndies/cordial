@@ -1,5 +1,6 @@
 require "httparty"
 require "cordial/version"
+require "cordial/client"
 
 module Cordial
   class << self
