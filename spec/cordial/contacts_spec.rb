@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe Cordial::Contacts do
   let(:email) { 'cordial@example.com' }
@@ -12,19 +12,18 @@ RSpec.describe Cordial::Contacts do
   end
 
   describe '#create' do
-     subject { described_class.create(email: email, attribute_list: attribute_list) }
+    subject { described_class.create(email: email, attribute_list: attribute_list) }
 
-     let(:attribute_list) do
-       { first_name: 'Cordial' }
-     end
+    let(:attribute_list) do
+      { first_name: 'Cordial' }
+    end
 
-     it 'has a correctly formatted request url' do
+    it 'has a correctly formatted request url' do
       expect(subject.request.last_uri.to_s).to eq 'https://api.cordial.io/v1/contacts'
-     end
+    end
 
-     it 'has the correct payload' do
-       expect(subject.request.raw_body).to eq 'channels[email][address]=cordial%40example.com&first_name=Cordial'
-     end
+    it 'has the correct payload' do
+      expect(subject.request.raw_body).to eq 'channels[email][address]=cordial%40example.com&first_name=Cordial'
+    end
   end
-end
 
