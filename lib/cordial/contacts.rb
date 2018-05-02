@@ -14,7 +14,7 @@ module Cordial
           email: {
             address: email
           }
-        },
+        }
       }.merge(attribute_list))
     end
   end
