@@ -17,5 +17,9 @@ module Cordial
         }
       }.merge(attribute_list))
     end
+
+    def self.unsubscribe(email:, channel: 'email')
+      client.put("/contacts/#{email}/unsubscribe/#{channel}")
+    end
   end
 end
