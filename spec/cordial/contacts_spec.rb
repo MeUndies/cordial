@@ -27,3 +27,12 @@ RSpec.describe Cordial::Contacts do
     end
   end
 
+  describe '#unsubscribe' do
+    subject { described_class.unsubscribe(email: email) }
+
+    it 'has a correctly formatted request url' do
+      unsubscribe_url = 'https://api.cordial.io/v1/contacts/cordial@example.com/unsubscribe/email'
+      expect(subject.request.last_uri.to_s).to eq unsubscribe_url
+    end
+  end
+end
