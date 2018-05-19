@@ -14,6 +14,6 @@ module Cordial
   end
 
   class Configuration
-    attr_accessor :api_key, :api_url
+    attr_accessor :api_key
   end
 end
