@@ -2,8 +2,8 @@
 
 [ ![Codeship Status for MeUndies/cordial](https://app.codeship.com/projects/ecb6fbe0-2a65-0136-d9ce-769c4cc8653c/status?branch=master)](https://app.codeship.com/projects/287555)
 [![Gem Version](https://badge.fury.io/rb/cordial.svg)](https://badge.fury.io/rb/cordial)
-[![Maintainability](https://api.codeclimate.com/v1/badges/52901e63f4f656dc1cfe/maintainability)](https://codeclimate.com/repos/5ae0efa43c3ef10298000760/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/52901e63f4f656dc1cfe/test_coverage)](https://codeclimate.com/repos/5ae0efa43c3ef10298000760/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a53de2aaf1773c8cfb06/maintainability)](https://codeclimate.com/github/MeUndies/cordial/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a53de2aaf1773c8cfb06/test_coverage)](https://codeclimate.com/github/MeUndies/cordial/test_coverage)
 
 A ruby gem to interact with the [Cordial API](https://api.cordial.io/docs/v1/).
 
