@@ -46,16 +46,19 @@ module Cordial
     #    email: 'hello@world.earth',
     #    attribute_list: {
     #      some_attribute: 'your-custom-value'
-    #    }
+    #    },
+    #    subscribe_status: 'subscribed'
     #  )
-    def self.create(email:, attribute_list:)
+    def self.create(email:, attribute_list: {}, subscribe_status: nil)
       client.post('/contacts', body: {
         channels: {
           email: {
-            address: email
-          }
-        }
-      }.merge(attribute_list))
+            address: email,
+            subscribeStatus: subscribe_status
+          }.compact
+        },
+        forceSubscribe: subscribe_status == 'subscribed' || nil
+      }.compact.merge(attribute_list))
     end
 
     # Unsubscribe a contact.
