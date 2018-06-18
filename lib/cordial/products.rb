@@ -31,5 +31,31 @@ module Cordial
     def self.find(id:)
       client.get("/products/#{id}")
     end
+
+    # Create a new product.
+    #
+    # If the product already exists it will be updated.
+    # @example Usage.
+    #  Cordial::Products.create(
+    #    product_id: 1,
+    #    product_name: 'Test Product',
+    #    price: 99.99,
+    #    variants: [{
+    #      sku: '123',
+    #      attr: {
+    #        color: 'red',
+    #        size: 'L'
+    #      }
+    #    }]
+    #  )
+    def self.create(id:, name:, price:, variants:)
+      client.post('/products',
+                  body: {
+                    productID: id,
+                    productName: name,
+                    price: price,
+                    variants: variants
+                  }.to_json)
+    end
   end
 end

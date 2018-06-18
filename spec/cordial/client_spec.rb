@@ -18,7 +18,8 @@ RSpec.describe Cordial::Client do
         basic_auth: {
           username: 'cordial-api-key',
           password: ''
-        }
+        },
+        headers: { 'Content-Type' => 'application/json' }
       )
     end
   end

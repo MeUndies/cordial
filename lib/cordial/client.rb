@@ -6,6 +6,7 @@ module Cordial
     def client
       base_uri 'https://api.cordial.io/v1'
       basic_auth(Cordial.config.api_key, '')
+      headers 'Content-Type' => 'application/json'
       self
     end
   end

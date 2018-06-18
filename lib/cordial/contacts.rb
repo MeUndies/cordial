@@ -58,7 +58,7 @@ module Cordial
           }.compact
         },
         forceSubscribe: subscribe_status == 'subscribed' || nil
-      }.compact.merge(attribute_list))
+      }.compact.merge(attribute_list).to_json)
     end
 
     # Unsubscribe a contact.
