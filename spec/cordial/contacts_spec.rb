@@ -23,7 +23,8 @@ RSpec.describe Cordial::Contacts do
     end
 
     it 'has the correct payload' do
-      expect(subject.request.raw_body).to eq 'channels[email][address]=cordial%40example.com&first_name=Cordial'
+      payload = '{"channels":{"email":{"address":"cordial@example.com"}},"first_name":"Cordial"}'
+      expect(subject.request.raw_body).to eq payload
     end
   end
 
