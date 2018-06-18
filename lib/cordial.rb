@@ -2,6 +2,7 @@ require "httparty"
 require "cordial/version"
 require "cordial/client"
 require "cordial/contacts"
+require "cordial/products"
 
 module Cordial
   class << self
