@@ -1,4 +1,5 @@
 require "httparty"
+require "utils/compact"
 require "cordial/version"
 require "cordial/client"
 require "cordial/contacts"
