@@ -4,6 +4,7 @@ require "cordial/version"
 require "cordial/client"
 require "cordial/contacts"
 require "cordial/products"
+require "cordial/orders"
 
 module Cordial
   class << self
