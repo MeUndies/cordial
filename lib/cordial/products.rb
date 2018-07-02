@@ -7,7 +7,7 @@ module Cordial
 
     # Find a product.
     # @example Usage
-    #  Cordial::products.find(product_id: 1)
+    #  Cordial::Products.find(id: 1)
     # @example Response when the product was found.
     # {
     #   "_id"=>"5b28275fe1dc0fa0c872abec",
@@ -37,8 +37,8 @@ module Cordial
     # If the product already exists it will be updated.
     # @example Usage.
     #  Cordial::Products.create(
-    #    product_id: 1,
-    #    product_name: 'Test Product',
+    #    id: 1,
+    #    name: 'Test Product',
     #    price: 99.99,
     #    variants: [{
     #      sku: '123',
