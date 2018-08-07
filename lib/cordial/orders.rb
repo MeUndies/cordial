@@ -42,6 +42,8 @@ module Cordial
     # Cordial::Orders.create(
     #   id: 1,
     #   email: 'cordial@example.com',
+    #   link_id: '123456',
+    #   mc_id: '645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1',
     #   purchase_date: '2015-01-09 17:47:43',
     #   items: [{productID: '1',
     #            sku: '123',
@@ -52,14 +54,18 @@ module Cordial
     #
     # @example Response when orderID already exist on cordial.
     # {"error"=>true, "messages"=>"ID must be unique"}
-    def self.create(id:, email:, purchase_date:, items:)
-      client.post('/orders',
-                  body: {
-                    orderID: id,
-                    email: email,
-                    purchaseDate: purchase_date,
-                    items: items
-                  }.to_json)
+    def self.create(id:, email:, purchase_date:, items:, link_id: '', mc_id: '')
+      body = {
+        orderID: id,
+        email: email,
+        purchaseDate: purchase_date,
+        items: items
+      }
+
+      body[:linkID] = link_id unless link_id.empty?
+      body[:mcID] = mc_id unless mc_id.empty?
+
+      client.post('/orders', body: body.to_json)
     end
   end
 end
