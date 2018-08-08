@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Aug 2018 22:16:38 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '327'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5b28275fe1dc0fa0c872abec","productID":"1","productName":"Test
+        product","price":100,"variants":[{"sku":"skirt0912","attr":{"color":"blue","size":"8"},"qty":"10"},{"sku":"skirt0913","attr":{"color":"red","size":"6"},"qty":"9"}],"accountID":645,"totalQty":2,"lm":"2018-08-08T22:12:36+0000","ct":"2018-06-18T21:42:55+0000"}'
+    http_version: 
+  recorded_at: Wed, 08 Aug 2018 22:16:38 GMT
+recorded_with: VCR 4.0.0

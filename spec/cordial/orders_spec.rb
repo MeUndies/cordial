@@ -18,15 +18,28 @@ RSpec.describe Cordial::Orders do
     ]
   end
 
-  describe '#find' do
+  describe '#find', :vcr do
     subject { described_class.find(id: order_id) }
 
-    it 'has a correctly formatted request url' do
-      expect(subject.request.last_uri.to_s).to eq 'https://api.cordial.io/v1/orders/33451'
+    context 'when the record exists' do
+      it 'returns the requested order' do
+        response = subject
+
+        expect(response['_id']).to eq('5b69e5bcd6ab4e7b3118ed9a')
+      end
+    end
+
+    context 'when the record does not exits' do
+      let(:order_id) { '9999' }
+      it 'returns record not found response' do
+        response = subject
+
+        expect(response['message']).to eq('record not found')
+      end
     end
   end
 
-  describe '#create' do
+  describe '#create', :vcr do
     subject do
       described_class.create(id: order_id,
                              email: email,
@@ -34,14 +47,20 @@ RSpec.describe Cordial::Orders do
                              items: items)
     end
 
-    it 'has a correctly formatted request url' do
-      expect(subject.request.last_uri.to_s).to eq 'https://api.cordial.io/v1/orders'
+    context 'when the record already exists' do
+      it 'returns ID must be unique response' do
+        response = subject
+
+        expect(response['messages']).to eq('ID must be unique')
+      end
     end
 
-    it 'has the correct payload' do
-      payload = '{"orderID":"33451","email":"cordial@example.com","purchaseDate":"2018-07-02 13:19:00","items":[{"productID":"1","sku":"123","name":"Test Product 1","attr":{"color":"blue","size":"L"}}]}'
-
-      expect(subject.request.raw_body).to eq payload
+    context 'when the the record does exist in cordial' do
+      let(:order_id) { '9999' }
+      it 'returns success true response' do
+        response = subject
+        expect(response['success']).to eq(true)
+      end
     end
   end
 end
