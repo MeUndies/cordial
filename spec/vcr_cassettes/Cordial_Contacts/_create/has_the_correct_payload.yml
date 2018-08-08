@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cordial.io/v1/contacts
+    body:
+      encoding: UTF-8
+      string: '{"channels":{"email":{"address":"cordial@example.com"}},"first_name":"Cordial"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Aug 2018 20:51:10 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":true,"messages":{"validationErrors":{"first_name":["key first_name
+        is not part of the schema for this resource"]}}}'
+    http_version: 
+  recorded_at: Wed, 08 Aug 2018 20:51:10 GMT
+recorded_with: VCR 4.0.0

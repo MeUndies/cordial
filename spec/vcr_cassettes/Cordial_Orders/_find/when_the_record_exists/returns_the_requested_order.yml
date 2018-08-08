@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/orders/33451
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 07 Aug 2018 18:41:03 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5b69e5bcd6ab4e7b3118ed9a","orderID":"33451","purchaseDate":"2018-07-02T20:19:00+0000","items":[{"productID":"1","sku":"123","name":"Test
+        Product 1","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5b69e5bc737953ab86decbe5","totalAmount":0}'
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 18:41:03 GMT
+recorded_with: VCR 4.0.0

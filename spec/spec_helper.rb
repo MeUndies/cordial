@@ -8,6 +8,7 @@ Dotenv.load('.env.test')
 
 require "pry"
 require "cordial"
+require 'vcr'
 
 Cordial.configure do |config|
   config.api_key = ENV['API_KEY']
@@ -23,4 +24,17 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+
+  # Let's you set default VCR mode with VCR=all for re-recording
+  # episodes. :once is VCR default.
+  # to record again an API call just set VCR=all
+  # spec your_test_file_spec.rb:line number
+  record_mode = ENV['VCR'] ? ENV['VCR'].to_sym : :once
+  config.default_cassette_options = { record: record_mode }
 end

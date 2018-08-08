@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.11"
   spec.add_development_dependency "dotenv", "~> 2.4"
   spec.add_development_dependency "simplecov", "~> 0.16"
+  spec.add_development_dependency "vcr", "~> 4.0"
+  spec.add_development_dependency "webmock", "~> 3.4.0"
 end

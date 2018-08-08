@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/products/999
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Aug 2018 22:04:42 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":true,"message":"record not found"}'
+    http_version: 
+  recorded_at: Wed, 08 Aug 2018 22:04:42 GMT
+recorded_with: VCR 4.0.0

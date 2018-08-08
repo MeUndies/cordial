@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Aug 2018 22:02:21 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '295'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5b28275fe1dc0fa0c872abec","productID":"1","productName":"Test
+        Product","price":9.99,"variants":[{"sku":"123","attr":{"color":"red","size":"L"},"qty":"10"},{"sku":"qwerty","attr":[],"qty":"9"}],"accountID":645,"totalQty":19,"lm":"2018-08-07T20:36:05+0000","ct":"2018-06-18T21:42:55+0000"}'
+    http_version: 
+  recorded_at: Wed, 08 Aug 2018 22:02:21 GMT
+recorded_with: VCR 4.0.0

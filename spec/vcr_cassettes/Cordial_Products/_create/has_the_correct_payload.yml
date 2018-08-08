@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cordial.io/v1/products
+    body:
+      encoding: UTF-8
+      string: '{"productID":1,"productName":"Test product","price":100,"variants":[{"sku":"skirt0912","attr":{"color":"blue","size":"8"}},{"sku":"skirt0913","attr":{"color":"red","size":"6"}}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Aug 2018 22:11:11 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '44'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"message":"product updated"}'
+    http_version: 
+  recorded_at: Wed, 08 Aug 2018 22:11:11 GMT
+recorded_with: VCR 4.0.0
