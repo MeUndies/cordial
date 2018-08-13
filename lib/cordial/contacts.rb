@@ -63,14 +63,38 @@ module Cordial
 
     # Unsubscribe a contact.
     #
-    # @param channel [String] The channel to unsubscribe, defaults to `email`
+    # @param channel [String] The channel to unsubscribe`
     # @see https://support.cordial.com/hc/en-us/articles/115001319432-Channels-Overview
-    # @example Usage. Default channel.
+    # @param mc_id [String] The Message Contact ID
+    # @see https://support.cordial.com/hc/en-us/articles/115005855508-System-Variables
+    # @example Usage. Default without channel.
     #  Cordial::Contacts.unsubscribe(
     #    email: 'hello@world.earth'
     #  )
-    def self.unsubscribe(email:, channel: 'email')
-      client.put("/contacts/#{email}/unsubscribe/#{channel}")
+    #
+    # @example Usage. with channel and mcID.
+    #  Cordial::Contacts.unsubscribe(
+    #    email: 'hello@world.earth',
+    #    channel: 'email'
+    #    mc_id: '645:5b6a9f26esb828b63c2a7946:ot:8ama709bbb3dc2f9bc27158f:1'
+    #  )
+    def self.unsubscribe(email:, channel: '', mc_id: '')
+      if channel.empty? && mc_id.empty?
+        url = "/contacts/#{email}"
+        body = {
+          channels: {
+            email: {
+              address: email,
+              subscribeStatus: 'unsubscribed'
+            }
+          }
+        }
+      else
+        url = "/contacts/#{email}/unsubscribe/#{channel}"
+        body = { mcID: mc_id }
+      end
+
+      client.put(url, body: body.to_json)
     end
   end
 end

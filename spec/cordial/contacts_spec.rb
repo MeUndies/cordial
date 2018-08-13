@@ -41,14 +41,47 @@ RSpec.describe Cordial::Contacts do
     end
   end
 
-  # TODO, revisit this test when the cordial People respond why we have
-  # an error 500 when the contact is being unsubscribed in the platform.
   describe '#unsubscribe', :vcr do
-    subject { described_class.unsubscribe(email: email) }
+    context 'when email only is passed' do
+      subject { described_class.unsubscribe(email: email) }
 
-    it 'has a correctly formatted request url' do
-      unsubscribe_url = 'https://api.cordial.io/v1/contacts/cordial@example.com/unsubscribe/email'
-      expect(subject.request.last_uri.to_s).to eq unsubscribe_url
+      it 'has a correctly formatted request url' do
+        unsubscribe_url = 'https://api.cordial.io/v1/contacts/cordial@example.com'
+        expect(subject.request.last_uri.to_s).to eq unsubscribe_url
+      end
+
+      it 'the payload contains email and unsubscribe status' do
+        payload = '{"channels":{"email":{"address":"cordial@example.com","subscribeStatus":"unsubscribed"}}}'
+
+        expect(subject.request.raw_body).to eq payload
+      end
+
+      it 'returns unsubscribed success true' do
+        response = subject
+        expect(response['success']).to eq(true)
+      end
+    end
+
+    context 'when channel and mcID are passed' do
+      subject { described_class.unsubscribe(email: email, channel: 'email', mc_id: mc_id) }
+      let(:email) { 'juan.ruiz@magmalabs.io' }
+      let(:mc_id) { '645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1' }
+
+      it 'has a correctly formatted request url' do
+        unsubscribe_url = 'https://api.cordial.io/v1/contacts/juan.ruiz@magmalabs.io/unsubscribe/email'
+        expect(subject.request.last_uri.to_s).to eq unsubscribe_url
+      end
+
+      it 'the payload contains email and unsubscribe status' do
+        payload = '{"mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1"}'
+
+        expect(subject.request.raw_body).to eq payload
+      end
+
+      it 'returns unsubscribed success true' do
+        response = subject
+        expect(response['success']).to eq(true)
+      end
     end
   end
 end
