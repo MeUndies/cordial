@@ -54,7 +54,7 @@ module Cordial
     #
     # @example Response when orderID already exist on cordial.
     # {"error"=>true, "messages"=>"ID must be unique"}
-    def self.create(id:, email:, purchase_date:, items:, link_id: '', mc_id: '')
+    def self.create(id:, email:, purchase_date:, items:, link_id: nil, mc_id: nil)
       body = {
         orderID: id,
         email: email,
@@ -62,8 +62,8 @@ module Cordial
         items: items
       }
 
-      body[:linkID] = link_id unless link_id.empty?
-      body[:mcID] = mc_id unless mc_id.empty?
+      body[:linkID] = link_id unless link_id.nil?
+      body[:mcID] = mc_id unless mc_id.nil?
 
       client.post('/orders', body: body.to_json)
     end
