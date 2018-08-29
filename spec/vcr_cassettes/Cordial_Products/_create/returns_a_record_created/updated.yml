@@ -5,7 +5,8 @@ http_interactions:
     uri: https://api.cordial.io/v1/products
     body:
       encoding: UTF-8
-      string: '{"productID":1,"productName":"Test product","price":100,"variants":[{"sku":"skirt0912","attr":{"color":"blue","size":"8"}},{"sku":"skirt0913","attr":{"color":"red","size":"6"}}]}'
+      string: '{"productID":1,"productName":"Test product","price":100,"variants":[{"sku":"skirt0912","attr":{"color":"blue","size":"8"}},{"sku":"skirt0913","attr":{"color":"red","size":"6"}}],"inStock":true,"properties":{"test_metadata_1":"test
+        metadata","test_metadata_2":"test metadata"}}'
     headers:
       Content-Type:
       - application/json
@@ -30,7 +31,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 08 Aug 2018 22:11:17 GMT
+      - Wed, 29 Aug 2018 20:21:50 GMT
       Server:
       - Apache
       Content-Length:
@@ -41,5 +42,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"success":true,"message":"product updated"}'
     http_version: 
-  recorded_at: Wed, 08 Aug 2018 22:11:17 GMT
+  recorded_at: Wed, 29 Aug 2018 20:21:50 GMT
 recorded_with: VCR 4.0.0
