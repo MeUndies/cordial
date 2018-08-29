@@ -33,29 +33,35 @@ module Cordial
     end
 
     # Create a new product.
-    #
+    # options keyword argument is for optional parameters
+    # https://support.cordial.com/hc/en-us/articles/203886098#postProducts
     # If the product already exists it will be updated.
     # @example Usage.
     #  Cordial::Products.create(
     #    id: 1,
     #    name: 'Test Product',
-    #    price: 99.99,
-    #    variants: [{
-    #      sku: '123',
-    #      attr: {
-    #        color: 'red',
-    #        size: 'L'
-    #      }
-    #    }]
+    #    options: {
+    #      price: 99.99,
+    #      variants: [{
+    #        sku: '123',
+    #        attr: {
+    #          color: 'red',
+    #          size: 'L'
+    #        }
+    #      }],
+    #      inStock: true,
+    #      taxable: true,
+    #      enabled: true,
+    #      properties: {test_metadata: 'my test metadata'}
+    #    }
     #  )
-    def self.create(id:, name:, price:, variants:)
-      client.post('/products',
-                  body: {
-                    productID: id,
-                    productName: name,
-                    price: price,
-                    variants: variants
-                  }.to_json)
+    def self.create(id:, name:, options: {})
+      body = {
+        productID: id,
+        productName: name
+      }.merge(options).compact
+
+      client.post('/products', body: body.to_json)
     end
   end
 end
