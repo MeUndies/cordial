@@ -52,5 +52,44 @@ module Cordial
                     }
                   }.to_json)
     end
+
+    # Sends an automation template.
+    #
+    # @example Usage.
+    # Cordial::AutomationTemplates.send(
+    #   key: "promo_01_20_2018",
+    #   email: "user@example.com",
+    #   order: {
+    #     number: "R123456789"
+    #   }
+    # )
+    #
+    # @example successful response with unsubscribed user
+    # {"success"=>true, "message"=>"messages sent", "messagecontacts"=>[
+    #   {"accepted"=>false, "email"=>"user@example.com", "error"=>"not-subscribed"}
+    # ]}
+    #
+    # @example successful response with subscribed user
+    # {"success"=>true, "message"=>"messages sent", "messagecontacts"=>
+    #   [{"accepted"=>true,
+    #     "email"=>"user@example.com",
+    #     "mcID"=>"h123456:1a1a1a1a1a1:787457457",
+    #     "cID"=>"a1a1a1a1a1a1a1a1a1"}
+    #   ]}
+    #
+    # @example failed response
+    # {"error"=>"'/v1/automationtemplates//send' is not found."}
+    #
+    def self.send(key:, email:, **args)
+      client.post("/automationtemplates/#{key}/send",
+                  body: {
+                    to: {
+                      contact: {
+                        email: email
+                      },
+                      extVars: {}.compact.merge(args)
+                    }
+                  }.to_json)
+    end
   end
 end
