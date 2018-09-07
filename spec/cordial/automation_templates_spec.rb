@@ -6,11 +6,13 @@ RSpec.describe Cordial::AutomationTemplates do
   let(:channel) { 'email' }
   let(:classification) { 'promotional' }
   let(:base_aggregation) { 'hourly' }
+  let(:email) { 'info@example.com' }
+  let(:order_number) { 'R123456789' }
   let(:headers) do
     {
       subject_email: "One Day Only Sale",
-      from_email: "info@example.com",
-      reply_email: "info@example.com",
+      from_email: email,
+      reply_email: email,
       from_description: "Promotions Team"
     }
   end
@@ -59,6 +61,49 @@ RSpec.describe Cordial::AutomationTemplates do
         response = subject
         expect(response['error']).to eq(true)
         expect(response.code).to eq(422)
+      end
+    end
+  end
+
+  describe '#send', :vcr do
+    subject do
+      described_class.send(
+        key: key,
+        email: email,
+        order: {
+          number: order_number
+        }
+      )
+    end
+
+    it 'has the correct payload' do
+      payload = '{"to":{"contact":{"email":"info@example.com"},"extVars":{"order":{"number":"R123456789"}}}}'
+      expect(subject.request.raw_body).to eq payload
+    end
+
+    context 'when an email is sent' do
+      it 'returns a successful message' do
+        response = subject
+        expect(response['success']).to eq(true)
+        expect(response.code).to eq(201)
+      end
+    end
+
+    context 'when the key is empty' do
+      let(:key) { '' }
+      it 'returns a message error' do
+        response = subject
+        expect(response['error']).to eq("'/v1/automationtemplates//send' is not found.")
+        expect(response.code).to eq(404)
+      end
+    end
+
+    context 'when the key is not found' do
+      let(:key) { 'promo' }
+      it 'returns a message error' do
+        response = subject
+        expect(response['error']).to eq("an error has occurred")
+        expect(response.code).to eq(500)
       end
     end
   end
