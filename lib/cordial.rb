@@ -1,8 +1,14 @@
 require 'hashie'
 require 'httparty'
 require 'utils/compact'
+
 require 'cordial/version'
 require 'cordial/client'
+
+# Models
+require 'cordial/order'
+
+# Controllers
 require 'cordial/contacts'
 require 'cordial/products'
 require 'cordial/orders'

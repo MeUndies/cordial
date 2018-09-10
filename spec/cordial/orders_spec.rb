@@ -40,27 +40,30 @@ RSpec.describe Cordial::Orders do
   end
 
   describe '#create', :vcr do
-    subject do
-      described_class.create(id: order_id,
-                             email: email,
-                             purchase_date: purchase_date,
-                             items: items)
+    subject { described_class.create(options) }
+
+    let(:options) do
+
+      {
+        email: 'antman@avengers.com',
+        orderID: order_id,
+        purchaseDate: purchase_date,
+        items: items
+      }
     end
 
-    context 'when the record already exists' do
-      it 'returns ID must be unique response' do
-        response = subject
-
-        expect(response['messages']).to eq('ID must be unique')
+    context 'on initial creation' do
+      let(:order_id) { '10000' }
+      it 'creates the order in Cordial' do
+        expect(subject['success']).to eq(true)
       end
     end
 
-    context 'when the the record does exist in cordial' do
-      let(:order_id) { '9999' }
-      it 'returns success true response' do
-        response = subject
-        expect(response['success']).to eq(true)
+    context 'on subsequent attempts to create' do
+      it 'complains that order has already been created' do
+        expect(subject['messages']).to eq('ID must be unique')
       end
     end
+
   end
 end
