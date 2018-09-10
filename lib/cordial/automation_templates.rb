@@ -41,13 +41,13 @@ module Cordial
                     baseAggregation: base_aggregation,
                     message: {
                       headers: {
-                          subject: headers[:subject_email],
-                          fromEmail: headers[:from_email],
-                          replyEmail: headers[:reply_email],
-                          fromDesc: headers[:from_description]
+                        subject: headers[:subject_email],
+                        fromEmail: headers[:from_email],
+                        replyEmail: headers[:reply_email],
+                        fromDesc: headers[:from_description]
                       },
                       content: {
-                          "text/html": content[:text]
+                        "text/html": content[:text]
                       }
                     }
                   }.to_json)
