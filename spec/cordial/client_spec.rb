@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Cordial::Client do
-
   let(:dummy_class) { DummyClass }
 
   class DummyClass

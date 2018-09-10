@@ -1,11 +1,11 @@
-require "httparty"
-require "utils/compact"
-require "cordial/version"
-require "cordial/client"
-require "cordial/contacts"
-require "cordial/products"
-require "cordial/orders"
-require "cordial/automation_templates"
+require 'httparty'
+require 'utils/compact'
+require 'cordial/version'
+require 'cordial/client'
+require 'cordial/contacts'
+require 'cordial/products'
+require 'cordial/orders'
+require 'cordial/automation_templates'
 
 module Cordial
   class << self

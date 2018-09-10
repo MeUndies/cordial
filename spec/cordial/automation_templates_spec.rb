@@ -10,15 +10,15 @@ RSpec.describe Cordial::AutomationTemplates do
   let(:order_number) { 'R123456789' }
   let(:headers) do
     {
-      subject_email: "One Day Only Sale",
+      subject_email: 'One Day Only Sale',
       from_email: email,
       reply_email: email,
-      from_description: "Promotions Team"
+      from_description: 'Promotions Team'
     }
   end
   let(:content) do
     {
-      text: "<div>Hello World</div>"
+      text: '<div>Hello World</div>'
     }
   end
 
@@ -37,7 +37,7 @@ RSpec.describe Cordial::AutomationTemplates do
           from_description: headers[:from_description]
         },
         content: {
-          text: "<div>Hello World</div>"
+          text: '<div>Hello World</div>'
         }
       )
     end
@@ -102,7 +102,7 @@ RSpec.describe Cordial::AutomationTemplates do
       let(:key) { 'promo' }
       it 'returns a message error' do
         response = subject
-        expect(response['error']).to eq("an error has occurred")
+        expect(response['error']).to eq('an error has occurred')
         expect(response.code).to eq(500)
       end
     end
