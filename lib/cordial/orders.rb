@@ -36,36 +36,21 @@ module Cordial
     end
 
     # Create a new order.
-    # Posting more than one time the same "orderID" name will generate an error.
+    #
+    # This endpoint does not support the idea of an upsert like others do.
+    # Subsequent calls will fail.
     #
     # @example Usage.
-    # Cordial::Orders.create(
-    #   id: 1,
-    #   email: 'cordial@example.com',
-    #   link_id: '123456',
-    #   mc_id: '645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1',
-    #   purchase_date: '2015-01-09 17:47:43',
-    #   items: [{productID: '1',
-    #            sku: '123',
-    #            name: 'Test product',
-    #            attr: { color: 'blue', size: 'L' }}])
-    # @example response whe the orderID is not on cordial
+    # Cordial::Orders.create({...})
+    #
+    # @example response when the orderID is not on cordial
     # {"success"=>true}
     #
     # @example Response when orderID already exist on cordial.
     # {"error"=>true, "messages"=>"ID must be unique"}
-    def self.create(id:, email:, purchase_date:, items:, link_id: nil, mc_id: nil)
-      body = {
-        orderID: id,
-        email: email,
-        purchaseDate: purchase_date,
-        items: items
-      }
-
-      body[:linkID] = link_id unless link_id.nil?
-      body[:mcID] = mc_id unless mc_id.nil?
-
-      client.post('/orders', body: body.to_json)
+    def self.create(options)
+      order = Cordial::Order.new(options)
+      client.post('/orders', body: order.to_json)
     end
   end
 end
