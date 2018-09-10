@@ -15,7 +15,7 @@ RSpec.describe Cordial::Client do
       expect(subject.default_options).to eq(
         base_uri: 'https://api.cordial.io/v1',
         basic_auth: {
-          username: 'cordial-api-key',
+          username: ENV['API_KEY'],
           password: ''
         },
         headers: { 'Content-Type' => 'application/json' }
