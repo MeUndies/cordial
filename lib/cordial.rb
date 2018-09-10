@@ -1,3 +1,4 @@
+require 'hashie'
 require 'httparty'
 require 'utils/compact'
 require 'cordial/version'
