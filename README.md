@@ -1,6 +1,5 @@
 # Cordial
 
-[ ![Codeship Status for MeUndies/cordial](https://app.codeship.com/projects/ecb6fbe0-2a65-0136-d9ce-769c4cc8653c/status?branch=master)](https://app.codeship.com/projects/287555)
 [![Gem Version](https://badge.fury.io/rb/cordial.svg)](https://badge.fury.io/rb/cordial)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a53de2aaf1773c8cfb06/maintainability)](https://codeclimate.com/github/MeUndies/cordial/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a53de2aaf1773c8cfb06/test_coverage)](https://codeclimate.com/github/MeUndies/cordial/test_coverage)
@@ -37,9 +36,24 @@ Cordial::Contact.create(email: 'hello@world')
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To get started you're going to need to get a Cordial api key.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `bin/setup` to install dependencies. Then
+update your `.env` files with your api key. Then, run `rake spec` to run the
+tests. You can also run `bin/console` for an interactive prompt that will allow
+you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To
+release a new version, update the version number in `version.rb`, and then run
+`bundle exec rake release`, which will create a git tag for the version, push
+git commits and tags, and push the `.gem` file to
+[rubygems.org](https://rubygems.org).
+
+## Tests
+
+Once you've setup your environment you can run the tests with `rake spec`. In
+order to re-record VCR cassettes you'll want to make sure you have the following
+env var set as follows: `VCR=all`.
 
 ## Contributing
 
