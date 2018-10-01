@@ -23,6 +23,14 @@ RSpec.describe Cordial::Products do
     ]
   end
 
+  describe '#index', :vcr do
+    subject { described_class.index }
+    it 'provides a list of products' do
+      response = subject
+      expect(response.count).to eq(2)
+    end
+  end
+
   describe '#find', :vcr do
     subject { described_class.find(id: product_id) }
 

@@ -5,6 +5,13 @@ module Cordial
     include ::HTTParty
     extend Client
 
+    # Find all products
+    # @example Usage
+    #  Cordial::Products.all
+    def self.index
+      client.get('/products')
+    end
+
     # Find a product.
     # @example Usage
     #  Cordial::Products.find(id: 1)
