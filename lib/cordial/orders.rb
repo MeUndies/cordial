@@ -52,5 +52,10 @@ module Cordial
       order = Cordial::Order.new(options)
       client.post('/orders', body: order.to_json)
     end
+
+    # List orders in Cordial
+    def self.index
+      client.get('/orders')
+    end
   end
 end

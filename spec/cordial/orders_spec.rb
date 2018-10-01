@@ -43,7 +43,6 @@ RSpec.describe Cordial::Orders do
     subject { described_class.create(options) }
 
     let(:options) do
-
       {
         email: 'antman@avengers.com',
         orderID: order_id,
@@ -64,6 +63,22 @@ RSpec.describe Cordial::Orders do
         expect(subject['messages']).to eq('ID must be unique')
       end
     end
+  end
 
+  describe '#index' do
+    subject { described_class.index }
+
+    it 'provides a list of orders', :vcr do
+      expect(subject.count).to eq 25
+      expect(subject.first).to eq(
+        'orderID' => '1',
+        'purchaseDate' => '2015-01-10T01:47:43+0000',
+        'items' => [
+          { 'productID' => '1', 'sku' => '123', 'name' => 'Test product', 'attr' => { 'color' => 'blue', 'size' => 'L' }, 'amount' => 0 }
+        ],
+        'cID' => '5aea409bbb3dc2f9bc27158f',
+        'totalAmount' => 0
+      )
+    end
   end
 end

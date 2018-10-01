@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/orders
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 01 Oct 2018 22:45:34 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '7177'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6c623d358501d6d2b69683c01fecbd261538433934; expires=Tue, 01-Oct-19
+        22:45:34 GMT; path=/; domain=.api.cordial.io; HttpOnly
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 463275d9bbb05414-LAX
+    body:
+      encoding: UTF-8
+      string: '[{"orderID":"1","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"2","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"R514186486","purchaseDate":"2018-07-02T21:31:48+0000","items":[{"productID":"128","name":"Women''s
+        Boyshort","sku":"W400-GY-S","attr":{"color":"Grey","size":"S"},"amount":0},{"productID":"148","name":"Men''s
+        Boxer","sku":"M900-PHZ-M","attr":{"color":"Purple Haze","size":"M"},"amount":0},{"productID":"148","name":"Men''s
+        Boxer","sku":"M900-GSM-XXL","attr":{"color":"Get Sum","size":"2XL"},"amount":0}],"cID":"5ae0fc68bb3dc2f9bcd86f3c","totalAmount":0},{"orderID":"R853115067","purchaseDate":"2018-07-11T21:20:12+0000","items":[{"productID":"17","name":"Women''s
+        Cheeky Brief","sku":"W200-DS-S","attr":{"color":"Dark Sapphire","size":"S"},"amount":0}],"cID":"5b3e81c9e1dc0fa0c89839c8","totalAmount":0},{"orderID":"R201387171","purchaseDate":"2018-07-11T21:09:06+0000","items":[{"productID":"128","name":"Women''s
+        Boyshort","sku":"W400-DS-S","attr":{"color":"Dark Sapphire","size":"S"},"amount":0}],"cID":"5b3f96cae1dc0fa0c845a110","totalAmount":0},{"orderID":"R032173404","purchaseDate":"2018-06-18T16:38:07+0000","items":[{"productID":"17","name":"Women''s
+        Cheeky Brief","sku":"W200-SMS-L","attr":{"color":"Summer Slice","size":"L"},"amount":0}],"cID":"5b0ef508e1dc0fa0c8eedbb9","totalAmount":0},{"orderID":"R377836613","purchaseDate":"2018-07-11T17:43:10+0000","items":[{"productID":"123","name":"Women''s
+        Bikini","sku":"W300-BL-S","attr":{"color":"Black","size":"S"},"amount":0},{"productID":"14","name":"Men''s
+        Trunk","sku":"M700-DS-M","attr":{"color":"Dark Sapphire","size":"M"},"amount":0}],"cID":"5b3e81c9e1dc0fa0c89839c8","totalAmount":0},{"orderID":"A148174458","purchaseDate":"2018-07-13T09:30:43+0000","items":[{"productID":"14","name":"Men''s
+        Trunk","sku":"M700-CYC-M","attr":{"color":"Love Stripes","size":"M"},"amount":0},{"productID":"17","name":"Women''s
+        Cheeky Brief","sku":"W200-CYC-M","attr":{"color":"Love Stripes","size":"M"},"amount":0},{"productID":"13","name":"Men''s
+        Boxer Brief","sku":"M600-CYC-XL","attr":{"color":"Love Stripes","size":"XL"},"amount":0}],"cID":"5af8063bbb3dc2f9bc183c05","totalAmount":0},{"orderID":"33451","purchaseDate":"2018-07-02T20:19:00+0000","items":[{"productID":"1","sku":"123","name":"Test
+        Product 1","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5b69e5bc737953ab86decbe5","totalAmount":0},{"orderID":"9999","purchaseDate":"2018-07-02T20:19:00+0000","items":[{"productID":"1","sku":"123","name":"Test
+        Product 1","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5b69e5bc737953ab86decbe5","totalAmount":0},{"orderID":"3","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"4","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"5","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"6","linkID":"","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0,"linkID":""}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"7","linkID":"123456","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0,"linkID":"123456"}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"99","linkID":"123456","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","description":"test
+        product description","sku":"qwerty","category":"test","name":"test product","qty":9,"itemPrice":10,"amount":90,"linkID":"123456"}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":90},{"orderID":"100","linkID":"123456","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","description":"test
+        product description","sku":"qwerty","category":"test","name":"test product","qty":9,"itemPrice":10,"amount":90,"linkID":"123456"}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":90},{"orderID":"101","linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","description":"test
+        product description","sku":"qwerty","category":"test","name":"test product","qty":9,"itemPrice":10,"amount":90,"linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1"}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":90,"msID":"645:5b6a1f26e1b829b63c2a7946:ot"},{"orderID":"9","linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0,"linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1"}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0,"msID":"645:5b6a1f26e1b829b63c2a7946:ot"},{"orderID":"10","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0,"linkID":"123456"}],"linkID":"123456","cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"11","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0},{"orderID":"12","purchaseDate":"2015-01-10T01:47:43+0000","items":[{"productID":"1","sku":"123","name":"Test
+        product","attr":{"color":"blue","size":"L"},"amount":0,"linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1"}],"linkID":"123456","mcID":"645:5b6a1f26e1b829b63c2a7946:ot:5aea409bbb3dc2f9bc27158f:1","cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0,"msID":"645:5b6a1f26e1b829b63c2a7946:ot"},{"orderID":"R016223777","purchaseDate":"2018-07-30T16:48:21+0000","items":[{"productID":"17","name":"Women''s
+        Cheeky Brief","sku":"W200-GY-S","attr":{"color":"Grey","size":"S"},"amount":0}],"cID":"5b3f96cae1dc0fa0c845a110","totalAmount":0},{"orderID":"R244327288","purchaseDate":"2018-08-07T18:53:32+0000","items":[{"productID":"13","name":"Men''s
+        Boxer Brief","sku":"M600-LGN-M","attr":{"color":"Lagoon","size":"M"},"amount":0}],"cID":"5ae0fc68bb3dc2f9bcd86f3c","totalAmount":0},{"orderID":"R812504453","purchaseDate":"2018-08-17T19:17:55+0000","items":[{"productID":"123","name":"Women''s
+        Bikini","sku":"W300-DS-S","attr":{"color":"Dark Sapphire","size":"S"},"amount":0}],"cID":"5aea409bbb3dc2f9bc27158f","totalAmount":0}]'
+    http_version: 
+  recorded_at: Mon, 01 Oct 2018 22:45:34 GMT
+recorded_with: VCR 4.0.0
