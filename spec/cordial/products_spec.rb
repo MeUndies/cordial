@@ -23,6 +23,27 @@ RSpec.describe Cordial::Products do
     ]
   end
 
+  describe '#destroy', :vcr do
+    subject { described_class.destroy(id: product_id) }
+
+    context 'when the product is found' do
+      let(:product_id) { 123 }
+      it 'returns a success response' do
+        response = subject
+        expect(response['success']).to eq(true)
+      end
+    end
+
+    context 'when the product is not found' do
+      let(:product_id) { 999 }
+      it 'returns not found message ' do
+        response = subject
+        expect(response['error']).to eq(true)
+        expect(response['message']).to eq('Product not found')
+      end
+    end
+  end
+
   describe '#find', :vcr do
     subject { described_class.find(id: product_id) }
 

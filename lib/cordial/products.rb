@@ -5,6 +5,18 @@ module Cordial
     include ::HTTParty
     extend Client
 
+    # Delete a product
+    # @example Usage
+    #  Cordial::Products.destroy(id: 1)
+    # @example Response when the product was found.
+    # {"success"=>true}
+    #
+    # @example Response when the product was not found.
+    # {"error"=>true, "message"=>"Product not found"}
+    def self.destroy(id:)
+      client.delete("/products/#{id}")
+    end
+
     # Find a product.
     # @example Usage
     #  Cordial::Products.find(id: 1)
