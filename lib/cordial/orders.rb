@@ -57,5 +57,17 @@ module Cordial
     def self.index
       client.get('/orders')
     end
+
+    # Delete an order
+    # @example Usage
+    #  Cordial::Orders.destroy(id: 1)
+    # @example Response when the order was found.
+    # {"success"=>true}
+    #
+    # @example Response when the order was not found.
+    # {"error"=>true, "message"=>"Product not found"}
+    def self.destroy(id:)
+      client.delete("/orders/#{id}")
+    end
   end
 end

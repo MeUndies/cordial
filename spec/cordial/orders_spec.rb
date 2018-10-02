@@ -81,4 +81,25 @@ RSpec.describe Cordial::Orders do
       )
     end
   end
+
+  describe '#destroy', :vcr do
+    subject { described_class.destroy(id: order_id) }
+
+    context 'when the order is found' do
+      let(:order_id) { 1 }
+      it 'returns a success response' do
+        response = subject
+        expect(response['success']).to eq(true)
+      end
+    end
+
+    context 'when the order is not found' do
+      let(:order_id) { 999 }
+      it 'returns not found message ' do
+        response = subject
+        expect(response['error']).to eq(true)
+        expect(response['messages']).to eq('Order not found')
+      end
+    end
+  end
 end
