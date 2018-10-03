@@ -54,8 +54,18 @@ module Cordial
     end
 
     # List orders in Cordial
-    def self.index
-      client.get('/orders')
+    def self.index(options = {})
+      client.get(
+        '/orders',
+        query: {
+          'fields': options[:fields],
+          'cID': options[:cID],
+          'email': options[:email],
+          'purchaseDate': options[:purchaseDate],
+          'page': options[:page],
+          'per_page': options[:per_page]
+        }.compact
+      )
     end
   end
 end

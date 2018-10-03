@@ -66,19 +66,31 @@ RSpec.describe Cordial::Orders do
   end
 
   describe '#index' do
-    subject { described_class.index }
+    subject { described_class.index(options) }
 
-    it 'provides a list of orders', :vcr do
-      expect(subject.count).to eq 25
-      expect(subject.first).to eq(
-        'orderID' => '1',
-        'purchaseDate' => '2015-01-10T01:47:43+0000',
-        'items' => [
-          { 'productID' => '1', 'sku' => '123', 'name' => 'Test product', 'attr' => { 'color' => 'blue', 'size' => 'L' }, 'amount' => 0 }
-        ],
-        'cID' => '5aea409bbb3dc2f9bc27158f',
-        'totalAmount' => 0
-      )
+    context 'when no options are provided' do
+      let(:options) { {} }
+
+      it 'provides a list of orders', :vcr do
+        expect(subject.count).to eq 25
+        expect(subject.first).to eq(
+          'orderID' => '1',
+          'purchaseDate' => '2015-01-10T01:47:43+0000',
+          'items' => [
+            { 'productID' => '1', 'sku' => '123', 'name' => 'Test product', 'attr' => { 'color' => 'blue', 'size' => 'L' }, 'amount' => 0 }
+          ],
+          'cID' => '5aea409bbb3dc2f9bc27158f',
+          'totalAmount' => 0
+        )
+      end
+    end
+
+    context 'when options are provided' do
+      let(:options) { { page: 2, per_page: 4 } }
+
+      it 'supports paging', :vcr do
+        expect(subject.count).to eq 4
+      end
     end
   end
 end
