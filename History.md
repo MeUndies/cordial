@@ -1,3 +1,15 @@
+
+v0.1.12 / 2018-10-04
+==================
+
+  * Add optional query to Order#index
+  * Add support for orders index
+
+v0.1.11 / 2018-10-04
+==================
+
+  * Add models
+
 v0.1.10 / 2018-09-07
 ====================
 
