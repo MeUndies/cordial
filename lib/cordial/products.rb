@@ -1,41 +1,40 @@
 module Cordial
-  # Wraps all interaction with the Product resource.
+  # Pragmatic wrapper around the products REST Api.
+  #
   # @see https://api.cordial.io/docs/v1/#!/products
   class Products
     include ::HTTParty
     extend Client
 
     # Find a product.
+    #
     # @example Usage
     #  Cordial::Products.find(id: 1)
-    # @example Response when the product was found.
-    # {
-    #   "_id"=>"5b28275fe1dc0fa0c872abec",
-    #   "productID"=>"1",
-    #   "productName"=>"Test Product",
-    #   "price"=>10,
-    #   "variants"=>[
-    #     {
-    #       "sku"=>"123456789",
-    #       "attr"=>{"color"=>"blue", "size"=>"Large"},
-    #       "qty"=>"10"}
-    #   ],
-    #   "accountID"=>645,
-    #   "totalQty"=>10,
-    #   "lm"=>"2018-06-18T21:42:55+0000",
-    #   "ct"=>"2018-06-18T21:42:55+0000"
-    # }
     #
-    # @example Response when the product was not found.
-    #  {"error"=>true, "message"=>"record not found"}
+    # @return [Hash]
+    # @return [{"error"=>true, "message"=>"record not found"}]
     def self.find(id:)
       client.get("/products/#{id}")
     end
 
     # Create a new product.
-    # options keyword argument is for optional parameters
-    # https://support.cordial.com/hc/en-us/articles/203886098#postProducts
-    # If the product already exists it will be updated.
+    #
+    # @note If the product already exists it will be updated.
+    #
+    # @see https://support.cordial.com/hc/en-us/articles/203886098#postProducts
+    #
+    # @param id [String|Fixnum]
+    # @param name [String]
+    #
+    # @option options [Float] :price
+    # @option options [Array<Hash>] :variants
+    # @option options [Boolean] :inStock
+    # @option options [Boolean] :taxable
+    # @option options [Boolean] :enabled
+    # @option options [Array] :tags
+    # @option options [String] :url
+    # @option options [Hash] :properties
+    #
     # @example Usage.
     #  Cordial::Products.create(
     #    id: 1,
