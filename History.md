@@ -1,4 +1,11 @@
 
+v1.0.0 / 2018-12-04
+==================
+
+  * First stable release!
+  * Update Yardoc for Products
+  * Update Yardoc for Cordial::Orders
+
 v0.1.12 / 2018-10-04
 ==================
 
