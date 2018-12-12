@@ -54,6 +54,7 @@ module Cordial
         channels: {
           email: {
             address: email,
+            invalid: false,
             subscribeStatus: subscribe_status
           }.compact
         },
