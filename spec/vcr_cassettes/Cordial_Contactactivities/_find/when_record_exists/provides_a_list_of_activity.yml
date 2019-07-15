@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.cordial.io/v1/contactactivities?email=super-random-email-address@example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 15 Jul 2019 14:46:35 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2003'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d63be7b243ca26d7d69c8f41fd16404851563201995; expires=Tue, 14-Jul-20
+        14:46:35 GMT; path=/; domain=.cordial.io; HttpOnly
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Cordial-AccountKey,x-requested-with, Content-Type, origin, authorization,
+        accept, client-security-token, host, date, cookie, cookie2, cordial-accountid
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "://"
+      Access-Control-Max-Age:
+      - '60'
+      Accept-Ranges:
+      - bytes
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f6c86d83d65cd12-FCO
+    body:
+      encoding: UTF-8
+      string: '[{"cID":"5d2c816317295b2bb952c396","_id":"5d2c8524c22c29b43652e5ed","action":"cart","time":"2019-07-15T13:52:36+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c858fb125a94060e337d1","action":"cart","time":"2019-07-15T13:54:23+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c859d895e2b653b01a468","action":"cart","time":"2019-07-15T13:54:37+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c85a84daf4ee448b8a661","action":"order","time":"2019-07-15T13:54:48+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c85acc22c29346a52e328","action":"cart","time":"2019-07-15T13:54:52+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c85d7895e2b633b01a3f8","action":"cart","time":"2019-07-15T13:55:35+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c8651b125a9c064e337e6","action":"cart","time":"2019-07-15T13:57:37+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c8fac895e2bbf4101a33c","action":"cart","time":"2019-07-15T14:37:32+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c8fb1c22c299d5f52e241","action":"cart","time":"2019-07-15T14:37:37+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c9023c22c29ac4452e270","action":"cart","time":"2019-07-15T14:39:31+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c90554daf4ece49b8a56d","action":"cart","time":"2019-07-15T14:40:21+0000","email":"super-random-email-address@example.com"},{"cID":"5d2c816317295b2bb952c396","_id":"5d2c90e3895e2bcb4001a33a","action":"t","time":"2019-07-15T14:42:43+0000","email":"super-random-email-address@example.com"}]'
+    http_version: 
+  recorded_at: Mon, 15 Jul 2019 14:46:35 GMT
+recorded_with: VCR 4.0.0
