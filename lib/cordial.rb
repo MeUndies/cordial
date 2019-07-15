@@ -10,6 +10,7 @@ require 'cordial/order'
 
 # Controllers
 require 'cordial/contacts'
+require 'cordial/contactactivities'
 require 'cordial/products'
 require 'cordial/orders'
 require 'cordial/automation_templates'
