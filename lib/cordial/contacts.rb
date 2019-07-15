@@ -96,5 +96,17 @@ module Cordial
 
       client.put(url, body: body.to_json)
     end
+
+    # Create a new contact cart.
+    #
+    # @example Usage.
+    #   Cordial::Contacts.create_cart({...})
+    #
+    # @return [{"success"=>true}]
+    # @return [{"error"=>true, "messages"=>"..."}]
+    def self.create_cart(email, options)
+      cart = Cordial::Cart.new(options)
+      client.post("/contacts/#{email}/cart", body: cart.to_json)
+    end
   end
 end

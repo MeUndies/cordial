@@ -84,4 +84,39 @@ RSpec.describe Cordial::Contacts do
       end
     end
   end
+
+  describe '#create_cart', :vcr do
+    subject { described_class.create_cart(email, options) }
+
+    let(:cart_id) { '33451' }
+    let(:email) { 'cordial@example.com' }
+    let(:cartitems) do
+      [
+        {
+          productID: '1',
+          sku: '123',
+          name: 'Test Product 1',
+          category: 'Test Category',
+          attr: {
+            color: 'blue',
+            size: 'L'
+          }
+        }
+      ]
+    end
+
+    let(:options) do
+      {
+        customerID: email,
+        cartID: cart_id,
+        cartitems: cartitems
+      }
+    end
+
+    let(:cart_id) { '10000' }
+
+    it 'creates the cart in Cordial' do
+      expect(subject['success']).to eq(true)
+    end
+  end
 end
