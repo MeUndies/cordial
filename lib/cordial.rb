@@ -7,6 +7,7 @@ require 'cordial/client'
 
 # Models
 require 'cordial/order'
+require 'cordial/cart'
 
 # Controllers
 require 'cordial/contacts'
