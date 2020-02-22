@@ -77,7 +77,7 @@ RSpec.describe Cordial::AutomationTemplates do
     end
 
     it 'has the correct payload' do
-      payload = '{"to":{"contact":{"email":"info@example.com"},"extVars":{"order":{"number":"R123456789"}}}}'
+      payload = '{"to":{"contact":{"email":"info@example.com"},"extVars":{"order":{"number":"R123456789"}}},"identifyBy":"email"}'
       expect(subject.request.raw_body).to eq payload
     end
 

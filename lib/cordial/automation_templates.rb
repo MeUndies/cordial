@@ -88,7 +88,8 @@ module Cordial
                         email: email
                       },
                       extVars: {}.compact.merge(args)
-                    }
+                    },
+                    identifyBy: "email"
                   }.to_json)
     end
   end
