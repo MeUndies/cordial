@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.cordial.io/v1/contacts
+    method: put
+    uri: https://api.cordial.io/v1/contacts/email:cordial@example.com
     body:
       encoding: UTF-8
-      string: '{"channels":{"email":{"address":"cordial@example.com"}},"First_Name":"Cordial"}'
+      string: '{"channels":{"email":{"address":"cordial@example.com"}},"first_name":"Cordial"}'
     headers:
       Content-Type:
       - application/json
@@ -13,8 +13,8 @@ http_interactions:
       - Basic NWFjMmEwMzI0ZThiNjYwYTUzOGI0NTY4LVBPdDRiUWdPRWdPMnBQc2dYSjhRd1JRMVhxTzNnQVZZOg==
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -30,16 +30,17 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 08 Aug 2018 20:55:39 GMT
+      - Wed, 08 Aug 2018 20:51:10 GMT
       Server:
       - Apache
       Content-Length:
-      - '77'
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"success":true,"message":"contact updated","cID":"5b69e5bc737953ab86decbe5"}'
+      string: '{"error":true,"messages":{"validationErrors":{"first_name":["key first_name
+        is not part of the schema for this resource"]}}}'
     http_version: 
-  recorded_at: Wed, 08 Aug 2018 20:55:39 GMT
+  recorded_at: Wed, 08 Aug 2018 20:51:10 GMT
 recorded_with: VCR 4.0.0
