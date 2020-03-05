@@ -40,7 +40,7 @@ module Cordial
 
     # Create a new contact.
     #
-    # If the contact already exists it will be updated.
+    # If the contact already exists it will fail.
     # @example Usage.
     #  Cordial::Contacts.create(
     #    email: 'hello@world.earth',
@@ -51,6 +51,29 @@ module Cordial
     #  )
     def self.create(email:, attribute_list: {}, subscribe_status: nil)
       client.post('/contacts', body: {
+        channels: {
+          email: {
+            address: email,
+            subscribeStatus: subscribe_status
+          }.compact
+        },
+        forceSubscribe: subscribe_status == 'subscribed' || nil
+      }.compact.merge(attribute_list).to_json)
+    end
+
+    # Update an existing contact.
+    #
+    # If the contact doesn't exist it will fail.
+    # @example Usage.
+    #  Cordial::Contacts.update(
+    #    email: 'hello@world.earth',
+    #    attribute_list: {
+    #      some_attribute: 'your-custom-value'
+    #    },
+    #    subscribe_status: 'subscribed'
+    #  )
+    def self.update(email:, attribute_list: {}, subscribe_status: nil)
+      client.put("/contacts/email:#{email}", body: {
         channels: {
           email: {
             address: email,

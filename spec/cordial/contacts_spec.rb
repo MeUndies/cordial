@@ -35,7 +35,25 @@ RSpec.describe Cordial::Contacts do
       expect(subject.request.raw_body).to eq payload
     end
 
-    it 'returns a record created/updated' do
+    it 'returns a record created' do
+      response = subject
+      expect(response['success']).to eq(true)
+    end
+  end
+
+  describe '#update', :vcr do
+    subject { described_class.update(email: email, attribute_list: attribute_list) }
+
+    let(:attribute_list) do
+      { First_Name: 'Cordial' }
+    end
+
+    it 'has the correct payload' do
+      payload = '{"channels":{"email":{"address":"cordial@example.com"}},"First_Name":"Cordial"}'
+      expect(subject.request.raw_body).to eq payload
+    end
+
+    it 'returns a record updated' do
       response = subject
       expect(response['success']).to eq(true)
     end
