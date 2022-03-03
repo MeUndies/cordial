@@ -1,3 +1,5 @@
+🚧 This repo is no longer actively maintained. 🚧
+
 # Cordial
 
 [![Gem Version](https://badge.fury.io/rb/cordial.svg)](https://badge.fury.io/rb/cordial)
